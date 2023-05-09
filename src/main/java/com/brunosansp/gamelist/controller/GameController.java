@@ -1,5 +1,6 @@
 package com.brunosansp.gamelist.controller;
 
+import com.brunosansp.gamelist.dto.GameMinDTO;
 import com.brunosansp.gamelist.entities.Game;
 import com.brunosansp.gamelist.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping
-    public List<Game> findAll() {
-        return gameService.findAll();
+    public List<GameMinDTO> findAll() {
+        List<Game> result = gameService.findAll();
+        List<GameMinDTO> gameMinDTOS = result.stream().map(GameMinDTO::new).toList();
+        return gameMinDTOS;
     }
 }
