@@ -1,6 +1,7 @@
 package com.brunosansp.gamelist.dto;
 
 import com.brunosansp.gamelist.entities.Game;
+import com.brunosansp.gamelist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -26,6 +27,14 @@ public class GameMinDTO {
         this.shortDescription = entity.getShortDescription();
         this.year = entity.getYear();
         this.title = entity.getTitle();
+    }
+
+    public GameMinDTO(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.title = gameMinProjection.getTitle();
+        this.year = gameMinProjection.getYear();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 
     public Long getId() {
