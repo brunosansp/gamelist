@@ -35,3 +35,4 @@ build/
 ### Extra folders and files ###
 temp.txt
 .data
+*.sql
